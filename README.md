@@ -3,6 +3,7 @@
 > A vue wrapper for cytoscape.js
 
 ## Build Setup
+This library depends on cytoscape one.
 
 ``` bash
 # install dependencies

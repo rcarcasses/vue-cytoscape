@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "cytoscape": "^3.2.9",
     "vue": "^2.5.2"
   },
   "devDependencies": {

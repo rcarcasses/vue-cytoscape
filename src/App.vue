@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
-  </div>
+    <cytoscape :data="cytoConfig"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Cytoscape from './components/Cytoscape'
+import config from '@/utils/dummy-config'
 
 export default {
   name: 'App',
+  computed: {
+    cytoConfig () {
+      return config
+    }
+  },
   components: {
-    HelloWorld
+    Cytoscape
   }
 }
 </script>
