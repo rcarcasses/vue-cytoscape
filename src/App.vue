@@ -1,5 +1,7 @@
 <template>
-  <cytoscape :config="config" :width="width" :height="height"/>
+  <div id="holder">
+    <cytoscape :config="config"/>
+  </div>
 </template>
 
 <script>
@@ -10,9 +12,7 @@ export default {
   name: 'App',
   data () {
     return {
-      config: config,
-      width: 500,
-      height: 400
+      config: config
     }
   },
   components: {
@@ -22,6 +22,10 @@ export default {
 </script>
 
 <style>
+#holder {
+  width: 100%;
+  height: 400px;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,13 +1,11 @@
 <template>
-  <div v-bind:style="{ width: width + 'px', height: height + 'px' }">
-    <div id="cytoscape" ref="cytoscape"></div>
-  </div>
+  <div id="cytoscape" ref="cytoscape"></div>
 </template>
 <script>
 import CyObj from './cy-object'
 
 export default {
-  props: ['config', 'width', 'height'],
+  props: ['config'],
   mounted () {
     // create a cytoscape instance using the referenced div
     const container = this.$refs.cytoscape
