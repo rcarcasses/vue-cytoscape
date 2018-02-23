@@ -16,11 +16,11 @@ Vue.use(Cytoscape)
 This registrate a global `cytoscape` component and a store object `this.$cytoscape`, which is a promise of the cytoscape instance. You can access this for example to catch mouse events, using the same approach as using vanilla cytoscape. 
 After this, you use cytoscape as a normal vue component:
 ```javascript
-<cytoscape :config="config" :width="500px" :height="400px"/>
+<cytoscape :config="config" width="500px" height="400px"/>
 ```
 The `config` property is the part of the object passed to the `cytoscape` function without the container property. For example:
 ```javascript
-{
+const config = {
   elements: [
     { // node a
       data: { id: 'a' }
