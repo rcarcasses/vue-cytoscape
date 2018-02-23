@@ -1,9 +1,9 @@
 {
   "name": "vue-cytoscape",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A vue wrapper for cytoscape.js",
   "author": "Robert Carcassés Quevedo <carcasses@gmail.com>",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
