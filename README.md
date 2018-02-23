@@ -9,16 +9,17 @@ yarn add vue-cytoscape
 ```
 then import the plugin in your main Vue instance:
 ```
-import Cytoscape from 'vue-cytoscape'
+import VueCytoscape from 'vue-cytoscape'
+import 'vue-cytoscape/dist/vue-cytoscape.css'
 ...
-Vue.use(Cytoscape)
+Vue.use(VueCytoscape)
 ```
 This registrate a global `cytoscape` component and a store object `this.$cytoscape`, which is a promise of the cytoscape instance. You can access this for example to catch mouse events, using the same approach as using vanilla cytoscape. 
 After this, you use cytoscape as a normal vue component:
 ```javascript
-<cytoscape :config="config" width="500px" height="400px"/>
+<cytoscape :config="config" width="500" height="400"/>
 ```
-The `config` property is the part of the object passed to the `cytoscape` function without the container property. For example:
+The `width` and `height` properties should be given in pixels and must be numbers. The `config` property is the part of the object passed to the `cytoscape` function without the container property. For example:
 ```javascript
 const config = {
   elements: [

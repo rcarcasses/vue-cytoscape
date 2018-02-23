@@ -1,5 +1,5 @@
 <template>
-  <div id="wrapper" v-bind:style="{ width: width + 'px', height: height + 'px' }">
+  <div v-bind:style="{ width: width + 'px', height: height + 'px' }">
     <div id="cytoscape" ref="cytoscape"></div>
   </div>
 </template>
