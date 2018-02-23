@@ -1,5 +1,5 @@
 <template>
-    <cytoscape :data="cytoConfig"/>
+  <cytoscape :config="config" :width="width" :height="height"/>
 </template>
 
 <script>
@@ -8,9 +8,11 @@ import config from '@/utils/dummy-config'
 
 export default {
   name: 'App',
-  computed: {
-    cytoConfig () {
-      return config
+  data () {
+    return {
+      config: config,
+      width: 500,
+      height: 400
     }
   },
   components: {
