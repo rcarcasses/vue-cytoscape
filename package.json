@@ -1,6 +1,6 @@
 {
   "name": "vue-cytoscape",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A vue wrapper for cytoscape.js",
   "author": "Robert Carcassés Quevedo <carcasses@gmail.com>",
   "license": "MIT",
@@ -12,6 +12,16 @@
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js"
   },
+  "homepage": "https://github.com/rcarcasses/vue-cytoscape",
+  "bugs": "https://github.com/rcarcasses/vue-cytoscape/issues",
+  "repository": {
+    "url": "https://github.com/rcarcasses/vue-cytoscape",
+    "type": "git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/vue-cytoscape.js",
   "dependencies": {
     "cytoscape": "^3.2.9",
     "vue": "^2.5.2"
