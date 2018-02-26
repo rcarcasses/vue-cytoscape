@@ -85,7 +85,7 @@ export default {
   methods: {
     // you can call this method somewhere to trigger the update of the cytoscape canvas content
     cyUpdate () {
-      // some extra nodes and edges
+      // new nodes and edges
       const cynodes = [...]
       const cylinks = [...]
       // update the cytoscape instance
