@@ -1,18 +1,35 @@
 <template>
   <div id="holder">
-    <cytoscape :config="config"/>
+    <cytoscape :key="cyKey()" :config="config"/>
   </div>
 </template>
 
 <script>
 import Cytoscape from './components/Cytoscape'
 import config from '@/utils/dummy-config'
+import CyObj from '@/components/cy-object'
 
 export default {
   name: 'App',
   data () {
     return {
-      config: config
+      config: config,
+      i: 0
+    }
+  },
+  methods: {
+    cyKey () {
+      const that = this
+      CyObj.reset()
+      CyObj.instance.then(cy => {
+        console.log('cy', cy)
+        cy.on('tap', event => {
+          console.log('tapped')
+          that.i++
+        })
+      })
+      console.log('computing cyKey cy' + this.i)
+      return 'cy' + this.i
     }
   },
   components: {

@@ -4,7 +4,7 @@ import CyObj from '@/components/cy-object'
 export default {
   install (Vue, options) {
     Vue.component('cytoscape', VueCytoscape)
-    Vue.prototype.$cytoscape = CyObj.instance
+    Vue.prototype.$cytoscape = CyObj
   }
 }
 
