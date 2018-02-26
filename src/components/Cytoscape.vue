@@ -6,6 +6,9 @@ import CyObj from './cy-object'
 
 export default {
   props: ['config'],
+  created () {
+    console.log('[Cytoscape] before created')
+  },
   mounted () {
     // create a cytoscape instance using the referenced div
     const container = this.$refs.cytoscape
