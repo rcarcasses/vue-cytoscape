@@ -1,4 +1,6 @@
-[![npm](https://img.shields.io/npm/dm/vue-cytoscape.svg)](https://www.npmjs.com/package/vue-cytoscape)
+[![NPM](https://nodei.co/npm/vue-cytoscape.png)](https://nodei.co/npm/vue-cytoscape/)
+[![npm](https://img.shields.io/npm/dm/vue-cytoscape.svg?style=flat-square)](https://www.npmjs.com/package/vue-cytoscape)
+
 # vue-cytoscape
 
 > A vue wrapper for cytoscape.js
@@ -146,7 +148,6 @@ export default {
 ```
 
 ## Build Setup
-This library depends on cytoscape one.
 
 ``` bash
 # install dependencies
