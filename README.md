@@ -1,3 +1,4 @@
+![npm](https://img.shields.io/npm/dm/localeval.svg)
 # vue-cytoscape
 
 > A vue wrapper for cytoscape.js
