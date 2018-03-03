@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/dm/localeval.svg)](https://www.npmjs.com/package/vue-cytoscape)
+[![npm](https://img.shields.io/npm/dm/vue-cytoscape.svg)](https://www.npmjs.com/package/vue-cytoscape)
 # vue-cytoscape
 
 > A vue wrapper for cytoscape.js
