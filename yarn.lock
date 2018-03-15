@@ -1985,6 +1985,14 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
+cytoscape-context-menus@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/cytoscape-context-menus/-/cytoscape-context-menus-3.0.5.tgz#210fbff14ac83f31a62b2ed2ab67d3b780b943dd"
+
+cytoscape-cxtmenu@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cytoscape-cxtmenu/-/cytoscape-cxtmenu-3.0.0.tgz#cf26695f6eef351ae7918d11e6512a594e7af5a3"
+
 cytoscape@^3.2.9:
   version "3.2.9"
   resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.2.9.tgz#383fa975b04e0c05926ff27fa58550ddf0681494"
@@ -4185,6 +4193,10 @@ jest@^22.0.4:
   dependencies:
     import-local "^1.0.0"
     jest-cli "^22.4.2"
+
+jquery@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
 js-base64@^2.1.9:
   version "2.4.3"

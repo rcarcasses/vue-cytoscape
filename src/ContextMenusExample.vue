@@ -8,9 +8,9 @@
 import Cytoscape from './components/Cytoscape'
 import config from '@/utils/dummy-config'
 import CyObj from '@/components/cy-object'
-// import jquery from 'jquery'
-// import contextMenus from 'cytoscape-context-menus'
-import cxtmenu from 'cytoscape-cxtmenu'
+import jquery from 'jquery'
+import contextMenus from 'cytoscape-context-menus'
+import 'cytoscape-context-menus/cytoscape-context-menus.css'
 
 export default {
   name: 'App',
@@ -23,32 +23,13 @@ export default {
   methods: {
     preConfig (cytoscape) {
       console.log('calling pre-config')
-      // contextMenus(cytoscape, jquery)
-      cytoscape.use(cxtmenu)
+      contextMenus(cytoscape, jquery)
+      // cytoscape.use(contextMenus, jquery)
     },
     afterCreated (cy) {
       console.log('after created')
-      let menu = cy.cxtmenu({
-        selector: 'core',
-        commands: [
-          {
-            content: 'bg1',
-            select () {
-              console.log('bg1')
-            }
-          },
-
-          {
-            content: 'bg2',
-            select () {
-              console.log('bg2')
-            }
-          }
-        ]
-      })
-      console.log(menu)
       // demo your core ext
-      /* cy.contextMenus({
+      cy.contextMenus({
         menuItems: [
           {
             id: 'remove',
@@ -74,7 +55,7 @@ export default {
             disabled: false
           }
         ]
-      }) */
+      })
     },
     cyKey () {
       const that = this

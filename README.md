@@ -144,27 +144,66 @@ export default {
 </script>
 ```
 
-## Build Setup
-This library depends on cytoscape one.
+## Internal lifecycle hooks and cytoscape extensions
+Many features of cytoscape come as external dependencies or extensions. To use an extension you can use the following life cycle hooks:
 
-``` bash
-# install dependencies
-yarn install
+- `preConfig` if defined, it will be called with the cytoscape constructor function before creating the cytoscape instance.
+- `afterCreate` if defined, it will be called after the creation of the cytoscape instance with this instance as argument. This is also a good place to register mouse events and similar interactions.
 
-# serve with hot reload at localhost:8080
-yarn dev
+For example, in the following code we register and configure the `contextMenus` extension:
+```javascript
+<template>
+  <div id="holder">
+    <cytoscape :config="config" :preConfig="preConfig" :afterCreated="afterCreated"/>
+  </div>
+</template>
+<script>
+...
+import jquery from 'jquery'
+import contextMenus from 'cytoscape-context-menus'
+import 'cytoscape-context-menus/cytoscape-context-menus.css'
 
-# build for production with minification
-yarn build
-
-# build for production and view the bundle analyzer report
-yarn build --report
-
-# run unit tests
-yarn unit
-
-# run all tests
-yarn test
+export default {
+  ...,
+  methods: {
+    preConfig (cytoscape) {
+      // it can be used both ways
+      contextMenus(cytoscape, jquery)
+      // cytoscape.use(contextMenus, jquery)
+    },
+    afterCreated (cy) {
+      // demo your core ext
+      cy.contextMenus({
+        menuItems: [
+          {
+            id: 'remove',
+            content: 'remove',
+            tooltipText: 'remove',
+            image: {src: 'remove.svg', width: 12, height: 12, x: 6, y: 4},
+            selector: 'node, edge',
+            onClickFunction: function (event) {
+              var target = event.target || event.cyTarget
+              target.remove()
+            },
+            hasTrailingDivider: true
+          },
+          {
+            id: 'hide',
+            content: 'hide',
+            tooltipText: 'hide',
+            selector: '*',
+            onClickFunction: function (event) {
+              var target = event.target || event.cyTarget
+              target.hide()
+            },
+            disabled: false
+          }
+        ]
+      })
+    },..
+  },
+  ...
+}
+</script>
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For additional details check the `ContextMenusExample.vue` and `CtxMenuExample.vue` in the `src` folder, notice that these example correspond to different extensions.

@@ -2,17 +2,10 @@ import cytoscape from 'cytoscape'
 
 let resolver = null
 let cy = null
-let extensions = []
 
 export default {
   reset () {
     cy = null
-  },
-  addExtension (e) {
-    extensions.push(e)
-  },
-  resetExtensions () {
-    extensions = []
   },
   get instance () {
     const promise = new Promise((resolve, reject) => {
@@ -24,12 +17,24 @@ export default {
     }
     return promise
   },
-  set config (config) {
+  setConfig (config, preConfig, afterCreated) {
+    // if a pre-configuration function is passed
+    // then call it with the cytoscape constructor
+    // this is useful to install/use extensions
+    if (preConfig) {
+      preConfig(cytoscape)
+    }
+
     cy = cytoscape(config)
-    // use all the extensions registered
-    extensions.map(e => cy.use(e))
-    console.log('setting cy value', cy)
+    // if a afterCreated function is passed
+    // then call it with the cytoscape *instance*
+    if (afterCreated) {
+      afterCreated(cy)
+    }
+
     // let the cytoscape instace available for the awaiters
-    resolver(cy)
+    if (resolver) {
+      resolver(cy)
+    }
   }
 }
