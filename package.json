@@ -1,6 +1,6 @@
 {
   "name": "vue-cytoscape",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A vue wrapper for cytoscape.js",
   "author": "Robert Carcassés Quevedo <carcasses@gmail.com>",
   "license": "MIT",
