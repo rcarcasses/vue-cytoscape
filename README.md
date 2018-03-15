@@ -1,3 +1,6 @@
+[![NPM](https://nodei.co/npm/vue-cytoscape.png)](https://nodei.co/npm/vue-cytoscape/)
+[![npm](https://img.shields.io/npm/dm/vue-cytoscape.svg?style=flat-square)](https://www.npmjs.com/package/vue-cytoscape)
+
 # vue-cytoscape
 
 > A vue wrapper for cytoscape.js
