@@ -3,7 +3,7 @@
 
 # vue-cytoscape
 
-> A vue wrapper for cytoscape.js
+> Cytoscape, now in vue
 
 ## Usage
 Add it to your project:
@@ -90,6 +90,16 @@ export default {
 ```
 You can check the `ChildrenElementsExample.vue` in the `github` repository for a full example.
 
+#### How this works
+This section is safe to ommit. Nevertheless the way the previous `vue`-like behaviour is implemented
+is the following:
+- A `CyElement` is a component that renders an empty div, if you inspect the DOM you will see that
+    `vue` actually renders them.
+- In the `created` and `destroyed` lifecycle method of a `CyElement` component a `cytoscape` element is
+    added/removed accordingly.
+- In the `updated` method, the correspondent element is first removed from `cytoscape` and
+    then added back.
+
 ### Cytoscape events
 
 You can register listeners to the usual `cytoscape` events directly in the component itself:
@@ -118,7 +128,7 @@ cytoscape](http://js.cytoscape.org/#events).
 
 ### Accesing `cytoscape` instance
 
-The installation registrate a global `cytoscape` component and a store object `this.$cytoscape`. Accessing `this.$cytoscape.instance` returns a promise to the cytoscape instance. You can access this for example to catch mouse events (although the method of the previous section is preferred) or to perform any action, using the same approach as using vanilla cytoscape. Accessing the store object allows you to add/delete/... objects in cytoscape. For example:
+The installation registrate a global `cytoscape` component and a store object `this.$cytoscape`. Accessing `this.$cytoscape.instance` returns a promise to the `cytoscape` instance. You can access this for example to catch mouse events (although the method of the previous section is preferred) or to perform any action, using the same approach as using vanilla `cytoscape`. Accessing the store object allows you to add/delete/... objects in `cytoscape`. For example:
 ```javascript
 <template>
   <cytoscape :config="config" style="width: 100%; height: 600px"/>
@@ -170,10 +180,10 @@ export default {
 ```
 
 ## Internal lifecycle hooks and cytoscape extensions
-Many features of cytoscape come as external dependencies or extensions. To use an extension you can use the following life cycle hooks:
+Many features of `cytoscape` come as external dependencies or extensions. To use an extension you can use the following life cycle hooks:
 
-- `preConfig` if defined, it will be called with the cytoscape constructor function before creating the cytoscape instance.
-- `afterCreate` if defined, it will be called after the creation of the cytoscape instance with this instance as argument. This is also a good place to register mouse events and similar interactions.
+- `preConfig` if defined, it will be called with the cytoscape constructor function before creating the `cytoscape` instance.
+- `afterCreate` if defined, it will be called after the creation of the `cytoscape` instance with this instance as argument.
 
 For example, in the following code we register and configure the `contextMenus` extension:
 ```javascript
