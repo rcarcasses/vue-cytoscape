@@ -23,7 +23,7 @@
   ],
   "main": "dist/vue-cytoscape.js",
   "dependencies": {
-    "cytoscape": "^3.2.9",
+    "cytoscape": "^3.3.3",
     "vue": "^2.5.2"
   },
   "devDependencies": {
@@ -43,8 +43,8 @@
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
-    "cytoscape-context-menus": "^3.0.5",
-    "cytoscape-cxtmenu": "^3.0.0",
+    "cytoscape-context-menus": "^3.0.6",
+    "cytoscape-cxtmenu": "^3.0.2",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",

@@ -17,10 +17,8 @@
 <script>
 import Cytoscape from './components/Cytoscape'
 import config from '@/utils/dummy-config'
-// import { sync } from '@/components/cy-object'
 import CyElement from '@/components/CyElement'
 
-// const state = sync({ elements: config.elements })
 delete config.elements
 
 export default {

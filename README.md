@@ -59,10 +59,66 @@ const config = {
 For more information please read [cytoscape documentation](http://js.cytoscape.org/#getting-started/initialisation).
 This library is in a very early stage and suggestions and help are welcomed. If you have any issue please feel free to use the [Issues](https://github.com/rcarcasses/vue-cytoscape/issues) page.
 
-### Reactivity and accesing `cytoscape` instance
-The installation registrate a global `cytoscape` component and a store object `this.$cytoscape`. Accessing `this.$cytoscape.instance` returns a promise to the cytoscape instance. You can access this for example to catch mouse events, using the same approach as using vanilla cytoscape. There are two approaches to interact with cytoscape, which are described below. You should choose the solution that feels better for you, keeping in mind that this library is still in an experimental stage.
-#### One `cytoscape` render
-In this approach the `cytoscape` instance is mounted and through the access of the store object you can add/delete/... objects in cytoscape. For example:
+### Reactivity
+
+Starting with version `1.2` it is possible to have a more `vue`-like experience. You can add elements
+to a `cytoscape` instance by adding `cy-elements` components as children of the `cytoscape`
+component:
+```
+<template>
+  <cytoscape :config="config">
+    <cy-element
+      v-for="def in elements"
+      :key="`${def.data.id}`"
+      :definition="def"
+    />
+  </cytoscape>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      elements: [{
+          data: { id: 'a' },  position: { x: 589, y: 182 }
+        },
+        ...
+      ]
+    }
+  }
+}
+</script>
+```
+You can check the `ChildrenElementsExample.vue` in the `github` repository for a full example.
+
+### Cytoscape events
+
+You can register listeners to the usual `cytoscape` events directly in the component itself:
+```
+<template>
+  ...
+  <cytoscape :config="config" v-on:mousedown="onCyMouseDown" />
+  ...
+<template>
+<script>
+...
+export default {
+  ...
+  methods: {
+    onCyMouseDown (event) {
+      // this will be called `onmousedown` over cytoscape
+    }
+  },
+  ...
+}
+</script>
+```
+The event is the same event dispatched by `cytoscape`, see [events in
+cytoscape](http://js.cytoscape.org/#events).
+
+
+### Accesing `cytoscape` instance
+
+The installation registrate a global `cytoscape` component and a store object `this.$cytoscape`. Accessing `this.$cytoscape.instance` returns a promise to the cytoscape instance. You can access this for example to catch mouse events (although the method of the previous section is preferred) or to perform any action, using the same approach as using vanilla cytoscape. Accessing the store object allows you to add/delete/... objects in cytoscape. For example:
 ```javascript
 <template>
   <cytoscape :config="config" style="width: 100%; height: 600px"/>
@@ -107,40 +163,6 @@ export default {
           that.$store.dispatch('sectors/select', { data })
         })
       })
-    }
-  }
-}
-</script>
-```
-#### Many `cytoscape` renders
-In this approach you change the config of the `cytoscape` component and this is completely re-rendered. In this case is convenient to specify a key for the component such that the change of this key will force the component render. For example:
-```javascript
-<template>
-  <cytoscape :key="cyKey()" :config="config"/>
-</template>
-<script>
-export default {
-  data () {
-    return {
-      config: {
-        ...
-      },
-      i: 0
-    }
-  },
-  methods: {
-    cyKey () {
-      const that = this
-      this.$cytoscape.reset()  // this is required, otherwise you will get a promise to an old cytoscape instance
-      this.$cytoscape.instance.then(cy => {
-        console.log('cy', cy)
-        cy.on('tap', event => {
-          console.log('tapped')
-          that.i++
-        })
-      })
-      console.log('computing cyKey cy' + this.i)
-      return 'cy' + this.i
     }
   }
 }
@@ -209,4 +231,14 @@ export default {
 }
 </script>
 ```
-For additional details check the `ContextMenusExample.vue` and `CtxMenuExample.vue` in the `src` folder, notice that these example correspond to different extensions.
+For additional details check the `ContextMenusExample.vue` and `CtxMenuExample.vue` in the `src` folder. Notice that these example correspond to different extensions.
+
+# Changelog
+
+## v0.2
+- `cytoscape` events can now be listened in through the component.
+- graph elements can be added as children of the `cytoscape` component.
+
+## v0.1
+- support for `cytoscape` interaction via global instance.
+- `preConfig` and `afterCreated` lifecycle hooks provided, support for `cytoscape` plugins.
