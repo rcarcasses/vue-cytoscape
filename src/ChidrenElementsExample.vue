@@ -15,9 +15,7 @@
 </template>
 
 <script>
-import Cytoscape from './components/Cytoscape'
 import config from '@/utils/dummy-config'
-import CyElement from '@/components/CyElement'
 
 const elements = [...config.elements]
 delete config.elements
@@ -66,10 +64,6 @@ export default {
         )
       }
     }
-  },
-  components: {
-    Cytoscape,
-    CyElement
   }
 }
 </script>

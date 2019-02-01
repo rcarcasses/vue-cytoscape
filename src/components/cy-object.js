@@ -36,7 +36,7 @@ const promise = new Promise((resolve, reject) => {
   resolver = resolve
 })
 
-export const VueCyObj = {
+const VueCyObj = {
   reset () {
     cy = null
   },
@@ -64,3 +64,5 @@ export const VueCyObj = {
     }
   }
 }
+
+export default VueCyObj

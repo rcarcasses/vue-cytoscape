@@ -1,10 +1,10 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import ChidrenElementsExample from './ChidrenElementsExample'
+import VueCytoscape from './plugin'
 // import CtxMenuExample from './CtxMenuExample'
 // import ContextMenusExample from './ContextMenusExample'
 
+Vue.use(VueCytoscape)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

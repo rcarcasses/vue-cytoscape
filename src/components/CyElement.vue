@@ -2,7 +2,8 @@
   <div></div>
 </template>
 <script>
-import { VueCyObj } from './cy-object'
+import VueCyObj from './cy-object'
+
 export default {
   props: ['definition'],
   created () {
