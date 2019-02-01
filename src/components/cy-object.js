@@ -32,18 +32,15 @@ export const sync = state => {
 let resolver = null
 let cy = null
 
+const promise = new Promise((resolve, reject) => {
+  resolver = resolve
+})
+
 export const VueCyObj = {
   reset () {
     cy = null
   },
   get instance () {
-    const promise = new Promise((resolve, reject) => {
-      resolver = resolve
-    })
-    // resolve the promise with the value with a reference to the current existing instance
-    if (cy) {
-      resolver(cy)
-    }
     return promise
   },
   setConfig (config, preConfig, afterCreated) {
