@@ -250,6 +250,8 @@ Another example, using the cola layout extension can be found in `LayoutExtensio
 ## v0.2
 - `cytoscape` events can now be listened in through the component.
 - graph elements can be added as children of the `cytoscape` component.
+- adding/removing elements directly using `cytoscape` instance is reflected in the `Cytoscape` component: `CyElement`s
+components are added/removed accordingly.
 
 ## v0.1
 - support for `cytoscape` interaction via global instance.

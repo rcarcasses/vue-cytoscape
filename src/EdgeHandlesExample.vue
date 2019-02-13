@@ -1,6 +1,16 @@
 <template>
   <div id="holder">
-    <cytoscape :config="config" :preConfig="preConfig" />
+    <div id="buttons">
+      <button id="start" @click="start">Start on selected</button>
+      <button id="draw-on" @click="enableDrawMode">Draw mode on</button>
+      <button id="draw-off" @click="disableDrawMode">Draw mode off</button>
+    </div>
+    <cytoscape
+      id="cy"
+      :config="config"
+      :preConfig="preConfig"
+      :afterCreated="afterCreated"
+    />
   </div>
 </template>
 
@@ -108,7 +118,60 @@ export default {
   methods: {
     preConfig (cytoscape) {
       cytoscape.use(edgehandles)
+    },
+    afterCreated (cy) {
+      console.log('cy: ', cy)
+      cy.edgehandles().enable()
+    },
+    async enableDrawMode () {
+      console.log('enabling draw mode: ')
+      const cy = await this.$cytoscape.instance
+      cy.edgehandles().enableDrawMode()
+    },
+    async disableDrawMode () {
+      console.log('disabling draw mode: ')
+      const cy = await this.$cytoscape.instance
+      cy.edgehandles().disableDrawMode()
+    },
+    async start () {
+      console.log('starting ')
+      const cy = await this.$cytoscape.instance
+      cy.edgehandles().start(cy.$('node:selected'))
     }
   }
 }
 </script>
+<style>
+#holder {
+  width: 100%;
+  height: 600px;
+}
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+#cy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+h1 {
+  opacity: 0.5;
+  font-size: 1em;
+  font-weight: bold;
+}
+#buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+}
+</style>

@@ -7,12 +7,10 @@ import VueCyObj from './cy-object'
 export default {
   props: ['definition'],
   created () {
-    // console.log('created', this.definition)
     this.add(this.definition)
   },
   watch: {
     definition (newVal, oldVal) {
-      // console.log('we are updating now: ', newVal, oldVal)
       this.remove(oldVal)
       this.add(newVal)
       return newVal
@@ -24,14 +22,14 @@ export default {
   },
   methods: {
     async add (element) {
-      // console.log('adding')
       const cy = await VueCyObj.instance
-      cy.add(element)
+      // add it only if it doesn't exist
+      if (cy.$id(element.data.id).length === 0) cy.add(element)
     },
     async remove (element) {
-      // console.log('removing ')
       const cy = await VueCyObj.instance
-      cy.remove(`#${element.data.id}`)
+      // remove it only if it exist
+      if (cy.$id(element.data.id).length > 0) cy.remove(`#${element.data.id}`)
     }
   }
 }
