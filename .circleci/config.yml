@@ -17,9 +17,9 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      - run:
-          name: Run tests
-          command: npm test
+      # - run:
+      #     name: Run tests
+      #     command: npm test
 
       - save_cache:
           paths:
@@ -40,7 +40,6 @@ jobs:
       - run:
           name: Publish package
           command: |
-            npm install
             npm build
             npm publish
 
@@ -48,10 +47,10 @@ workflows:
   version: 2
   test-deploy:
     jobs:
-      # - test:
-      #     filters:
-      #       tags:
-      #         only: /^v.*/
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
       - deploy:
           requires:
             - test
