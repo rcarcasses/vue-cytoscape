@@ -57,7 +57,7 @@ const config = {
 }
 ```
 For more information please read [cytoscape documentation](http://js.cytoscape.org/#getting-started/initialisation).
-This library is in a very early stage and suggestions and help are welcomed. If you have any issue please feel free to use the [Issues](https://github.com/rcarcasses/vue-cytoscape/issues) page.
+If you have any issue please feel free to use the [Issues](https://github.com/rcarcasses/vue-cytoscape/issues) page.
 
 ### Reactivity
 
