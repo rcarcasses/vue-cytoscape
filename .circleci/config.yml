@@ -41,7 +41,7 @@ jobs:
           name: Publish package
           command: |
             yarn build
-            yarn publish
+            yarn publish --non-interactive
 
 workflows:
   version: 2
