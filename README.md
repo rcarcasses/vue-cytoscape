@@ -243,6 +243,8 @@ export default {
 ```
 For additional details check the `ContextMenusExample.vue` and `CtxMenuExample.vue` in the `src` folder. Notice that these example correspond to different extensions.
 
+Another example, using the cola layout extension can be found in `LayoutExtensionsExample.vue`.
+
 # Changelog
 
 ## v0.2
