@@ -17,7 +17,6 @@ export default {
     }
   },
   destroyed () {
-    // console.log('remove', this.definition.data.id)
     this.remove(this.definition)
   },
   methods: {
