@@ -1,6 +1,7 @@
 [![NPM](https://nodei.co/npm/vue-cytoscape.png)](https://nodei.co/npm/vue-cytoscape/)
 [![npm](https://img.shields.io/npm/dm/vue-cytoscape.svg?style=flat-square)](https://www.npmjs.com/package/vue-cytoscape)
-
+[![Patreon](https://img.shields.io/badge/patreon-donate-blue.svg?style=flat-square)](https://www.patreon.com/rcarcasses)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](https://paypal.me/CarcassesQuevedo)
 # vue-cytoscape
 
 > Cytoscape, now in vue
