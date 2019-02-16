@@ -49,7 +49,6 @@ export default {
     if (Array.isArray(this.config.elements)) {
       els = [...this.config.elements]
     }
-    console.log('els: ', els)
     this.elements = els
   },
   async mounted () {
@@ -73,7 +72,6 @@ export default {
       }
       const { elements } = this
       const addReflection = () => {
-        console.log('event added: ', element)
         elements.push(element)
       }
       // if there is a hook, then pass the data to it

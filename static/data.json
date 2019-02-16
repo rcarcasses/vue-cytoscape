@@ -1,0 +1,691 @@
+{
+  "nodes": [
+    {
+      "data": {
+        "id": "1",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "2",
+        "label": "sucrose phosphate phosphatase"
+      }
+    },
+    {
+      "data": {
+        "id": "4",
+        "label": "sucrose 6-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "6",
+        "label": "sucrose"
+      }
+    },
+    {
+      "data": {
+        "id": "8",
+        "label": "invertase"
+      }
+    },
+    {
+      "data": {
+        "id": "10",
+        "label": "fructose"
+      }
+    },
+    {
+      "data": {
+        "id": "12",
+        "label": "fructokinase"
+      }
+    },
+    {
+      "data": {
+        "id": "14",
+        "label": "fructose 6-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "20",
+        "label": "phosphoglucose isomerase"
+      }
+    },
+    {
+      "data": {
+        "id": "22",
+        "label": "glucose 6-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "28",
+        "label": "glucose"
+      }
+    },
+    {
+      "data": {
+        "id": "30",
+        "label": "hexokinase"
+      }
+    },
+    {
+      "data": {
+        "id": "33",
+        "label": "sucrose synthase"
+      }
+    },
+    {
+      "data": {
+        "id": "36",
+        "label": "UDP - glucose"
+      }
+    },
+    {
+      "data": {
+        "id": "38",
+        "label": "sucrose phosphate synthase"
+      }
+    },
+    {
+      "data": {
+        "id": "41",
+        "label": "UDP"
+      }
+    },
+    {
+      "data": {
+        "id": "44",
+        "label": "fructose 6-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "46",
+        "label": "ATP"
+      }
+    },
+    {
+      "data": {
+        "id": "47",
+        "label": "ATP"
+      }
+    },
+    {
+      "data": {
+        "id": "52",
+        "label": "ATP"
+      }
+    },
+    {
+      "data": {
+        "id": "57",
+        "label": "ADP"
+      }
+    },
+    {
+      "data": {
+        "id": "66",
+        "label": "PP"
+      }
+    },
+    {
+      "data": {
+        "id": "71",
+        "label": "UTP"
+      }
+    },
+    {
+      "data": {
+        "id": "76",
+        "label": "UDP glucose pyrophosphorylase"
+      }
+    },
+    {
+      "data": {
+        "id": "80",
+        "label": "glucose 1-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "86",
+        "label": "phospho- glucomutase (cPGM)"
+      }
+    },
+    {
+      "data": {
+        "id": "89",
+        "label": "G1P transporter"
+      }
+    },
+    {
+      "data": {
+        "id": "90",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "95",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "102",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "103",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "104",
+        "label": "G6P transporter"
+      }
+    },
+    {
+      "data": {
+        "id": "109",
+        "label": "glucose 6-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "115",
+        "label": "phospho- glucomutase (cPGM)"
+      }
+    },
+    {
+      "data": {
+        "id": "121",
+        "label": "glucose 1-phosphate"
+      }
+    },
+    {
+      "data": {
+        "id": "128",
+        "label": "ADPglucose pyrophosphorylase (pAGPase)"
+      }
+    },
+    {
+      "data": {
+        "id": "130",
+        "label": "ADP - glucose"
+      }
+    },
+    {
+      "data": {
+        "id": "136",
+        "label": "PP"
+      }
+    },
+    {
+      "data": {
+        "id": "141",
+        "label": "ATP"
+      }
+    },
+    {
+      "data": {
+        "id": "148",
+        "label": "inorganic diphosphatase"
+      }
+    },
+    {
+      "data": {
+        "id": "149",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "156",
+        "label": "phosphate transporter"
+      }
+    },
+    {
+      "data": {
+        "id": "158",
+        "label": "P"
+      }
+    },
+    {
+      "data": {
+        "id": "164",
+        "label": "starch synthase (simpl.)"
+      }
+    },
+    {
+      "data": {
+        "id": "166",
+        "label": "ADP"
+      }
+    },
+    {
+      "data": {
+        "id": "172",
+        "label": "starch"
+      }
+    },
+    {
+      "data": {
+        "id": "178",
+        "label": "ATP/ADP transporter"
+      }
+    },
+    {
+      "data": {
+        "id": "179",
+        "label": "ADP"
+      }
+    },
+    {
+      "data": {
+        "id": "184",
+        "label": "ADP"
+      }
+    },
+    {
+      "data": {
+        "id": "189",
+        "label": "ATP"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "data": {
+        "source": "2",
+        "target": "1",
+        "id": "5e049c34-3dc7-4f7f-8209-b94dc5caff77"
+      }
+    },
+    {
+      "data": {
+        "source": "4",
+        "target": "2",
+        "id": "a0bf774c-5d2e-4d8d-bfd3-c3a8287ffdb3"
+      }
+    },
+    {
+      "data": {
+        "source": "2",
+        "target": "6",
+        "id": "d6fffeaf-0e51-404f-80a5-1873c5e8cd29"
+      }
+    },
+    {
+      "data": {
+        "source": "6",
+        "target": "8",
+        "id": "ff747b46-b187-4c8b-9b3f-66565bfc7dec"
+      }
+    },
+    {
+      "data": {
+        "source": "8",
+        "target": "10",
+        "id": "5be7b924-9b58-4d06-a564-5b30c179e47d"
+      }
+    },
+    {
+      "data": {
+        "source": "12",
+        "target": "14",
+        "id": "ebd4a4e5-e2db-4bed-ae33-b9003805904c"
+      }
+    },
+    {
+      "data": {
+        "source": "14",
+        "target": "20",
+        "id": "dea6640b-4176-494f-be9f-e567509c516a"
+      }
+    },
+    {
+      "data": {
+        "source": "20",
+        "target": "22",
+        "id": "79a9c4c9-a8bd-4147-bada-4d1dd0b80f24"
+      }
+    },
+    {
+      "data": {
+        "source": "8",
+        "target": "28",
+        "id": "9f3d275c-cccf-4999-897f-451e817627fd"
+      }
+    },
+    {
+      "data": {
+        "source": "28",
+        "target": "30",
+        "id": "824c6cc4-b1ae-4c1e-8925-eaa67bfbc30f"
+      }
+    },
+    {
+      "data": {
+        "source": "30",
+        "target": "22",
+        "id": "e198087e-3d0c-45c3-a6e7-f317f3e3f7f5"
+      }
+    },
+    {
+      "data": {
+        "source": "6",
+        "target": "33",
+        "id": "32a1f9d4-6c9a-4977-920e-8ca8f96c6971"
+      }
+    },
+    {
+      "data": {
+        "source": "33",
+        "target": "10",
+        "id": "93c3906e-d3a0-4224-91fe-ce8d3f96b193"
+      }
+    },
+    {
+      "data": {
+        "source": "33",
+        "target": "36",
+        "id": "9c84a6fb-2bef-4106-a365-82cd6b253e0e"
+      }
+    },
+    {
+      "data": {
+        "source": "36",
+        "target": "38",
+        "id": "339b39ba-33d9-4ef7-a855-805737472214"
+      }
+    },
+    {
+      "data": {
+        "source": "38",
+        "target": "4",
+        "id": "6c59ea98-beb1-4e63-be4f-7d952a15a986"
+      }
+    },
+    {
+      "data": {
+        "source": "38",
+        "target": "41",
+        "id": "afc54ec7-d6fa-4df9-aa50-574934cb2d38"
+      }
+    },
+    {
+      "data": {
+        "source": "41",
+        "target": "33",
+        "id": "d6f6c062-ecba-4ae1-bbad-b3151b190772"
+      }
+    },
+    {
+      "data": {
+        "source": "44",
+        "target": "38",
+        "id": "dc6dcf5a-3b81-47b2-987c-396cf0bbd64c"
+      }
+    },
+    {
+      "data": {
+        "source": "52",
+        "target": "12",
+        "id": "b8cf0afa-9838-460a-b099-be2cbfa9d1e8"
+      }
+    },
+    {
+      "data": {
+        "source": "12",
+        "target": "57",
+        "id": "50a57d05-99b7-4521-ab9e-7001af0eff21"
+      }
+    },
+    {
+      "data": {
+        "source": "46",
+        "target": "30",
+        "id": "abbb80dc-7cc2-4d62-a72f-86f59e28a0f5"
+      }
+    },
+    {
+      "data": {
+        "source": "30",
+        "target": "47",
+        "id": "b0cc5535-d1b3-438b-98bd-551514d03f59"
+      }
+    },
+    {
+      "data": {
+        "source": "71",
+        "target": "76",
+        "id": "fb8969db-28d8-4798-bfa0-b69908212111"
+      }
+    },
+    {
+      "data": {
+        "source": "76",
+        "target": "66",
+        "id": "254793c1-db02-4a83-a92f-d9824a0dc032"
+      }
+    },
+    {
+      "data": {
+        "source": "76",
+        "target": "36",
+        "id": "3163885c-c10d-45e2-a174-ea63096c3664"
+      }
+    },
+    {
+      "data": {
+        "source": "80",
+        "target": "76",
+        "id": "60da330e-5771-405e-abf3-df10ecdcd64c"
+      }
+    },
+    {
+      "data": {
+        "source": "22",
+        "target": "86",
+        "id": "c610035f-ca9d-41a5-a098-c76ba9d07fb7"
+      }
+    },
+    {
+      "data": {
+        "source": "86",
+        "target": "80",
+        "id": "0e9bdb00-bc35-42c3-8f21-43e5fa84b653"
+      }
+    },
+    {
+      "data": {
+        "source": "95",
+        "target": "89",
+        "id": "d82e2b16-9b1f-42a2-8de8-75b9f6b49776"
+      }
+    },
+    {
+      "data": {
+        "source": "89",
+        "target": "90",
+        "id": "3881eef0-62ad-4ad6-bf5b-c2eb4642f37a"
+      }
+    },
+    {
+      "data": {
+        "source": "102",
+        "target": "104",
+        "id": "b9151519-b5df-4ccf-b5e2-b581e5da6f0c"
+      }
+    },
+    {
+      "data": {
+        "source": "80",
+        "target": "89",
+        "id": "7aa143bc-9349-4fbe-9d8c-ce3195ad807d"
+      }
+    },
+    {
+      "data": {
+        "source": "104",
+        "target": "109",
+        "id": "0c56b584-887a-4890-bf7f-fafe615db888"
+      }
+    },
+    {
+      "data": {
+        "source": "115",
+        "target": "109",
+        "id": "3a5ce699-bf22-4f60-9591-c100871c1aec"
+      }
+    },
+    {
+      "data": {
+        "source": "121",
+        "target": "89",
+        "id": "b25084ce-aa83-4e10-984b-d7a7305e9ec6"
+      }
+    },
+    {
+      "data": {
+        "source": "121",
+        "target": "115",
+        "id": "b9c9551d-e2b8-4885-a6d0-cb4843f73687"
+      }
+    },
+    {
+      "data": {
+        "source": "121",
+        "target": "128",
+        "id": "7f8bb3e2-d8e6-408e-a25f-aa5a91c4f31b"
+      }
+    },
+    {
+      "data": {
+        "source": "128",
+        "target": "130",
+        "id": "680b4a1e-37d0-4656-a16d-20bd767b4db3"
+      }
+    },
+    {
+      "data": {
+        "source": "141",
+        "target": "128",
+        "id": "4ec520ab-4fdc-4320-a2b1-40d394507928"
+      }
+    },
+    {
+      "data": {
+        "source": "128",
+        "target": "136",
+        "id": "06db442a-febe-4681-9328-2b5779168b6d"
+      }
+    },
+    {
+      "data": {
+        "source": "136",
+        "target": "148",
+        "id": "f622d7b2-5964-4e7d-b2da-b8a925ea3404"
+      }
+    },
+    {
+      "data": {
+        "source": "148",
+        "target": "149",
+        "id": "cad24f6f-6689-46b3-9694-dde0d47aed1b"
+      }
+    },
+    {
+      "data": {
+        "source": "149",
+        "target": "156",
+        "id": "8fe80308-a355-4480-9490-361b02070363"
+      }
+    },
+    {
+      "data": {
+        "source": "156",
+        "target": "158",
+        "id": "11045554-a010-4e1b-a4ad-ce4aa6bc35cb"
+      }
+    },
+    {
+      "data": {
+        "source": "130",
+        "target": "164",
+        "id": "ae305261-f268-44c4-b0ec-6907c3c810af"
+      }
+    },
+    {
+      "data": {
+        "source": "164",
+        "target": "166",
+        "id": "1c424d01-99ed-4e77-beda-81b2873a18ab"
+      }
+    },
+    {
+      "data": {
+        "source": "178",
+        "target": "179",
+        "id": "545b8a19-84dd-40ff-9c89-6df5f36ae3f7"
+      }
+    },
+    {
+      "data": {
+        "source": "184",
+        "target": "178",
+        "id": "6d74c0a0-6d7b-4532-879b-028d1e8ea5cc"
+      }
+    },
+    {
+      "data": {
+        "source": "178",
+        "target": "189",
+        "id": "46eb57d0-0cb6-4a2f-9df6-9cdabba7d557"
+      }
+    },
+    {
+      "data": {
+        "source": "141",
+        "target": "178",
+        "id": "c482edb4-b5a4-4df6-8ec0-cfafb0cd15eb"
+      }
+    },
+    {
+      "data": {
+        "source": "104",
+        "target": "103",
+        "id": "fe01357a-b92f-44ff-b3b9-25271739ecef"
+      }
+    },
+    {
+      "data": {
+        "source": "10",
+        "target": "12",
+        "id": "cdb703ad-1d50-40c2-9169-103451ac882a"
+      }
+    },
+    {
+      "data": {
+        "source": "164",
+        "target": "172",
+        "id": "c43115bf-ff15-43f9-a95d-9c79cc021e54"
+      }
+    },
+    {
+      "data": {
+        "source": "22",
+        "target": "104",
+        "id": "68fa0f30-29f6-47c4-8042-5ed2f7915e2c"
+      }
+    }
+  ]
+}
