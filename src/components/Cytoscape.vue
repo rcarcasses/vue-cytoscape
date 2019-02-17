@@ -26,29 +26,38 @@ export default {
   },
   created () {
     let els = []
-    if (this.config.elements.hasOwnProperty('nodes')) {
-      els = [
-        ...els,
-        ...this.config.elements.nodes.map(n => ({ group: 'nodes', ...n }))
-      ]
-    }
-    if (this.config.elements.hasOwnProperty('edges')) {
-      els = [
-        ...els,
-        ...this.config.elements.edges.map(n => ({
-          ...n,
-          group: 'edges',
-          data: {
-            id: n.data.id ? n.data.id : `${n.data.source}_${n.data.target}`,
-            ...n.data
-          }
-        }))
-      ]
+    if (this.config && this.config.elements) {
+      if (
+        this.config.elements.nodes &&
+        Array.isArray(this.config.elements.nodes)
+      ) {
+        els = [
+          ...els,
+          ...this.config.elements.nodes.map(n => ({ group: 'nodes', ...n }))
+        ]
+      }
+      if (
+        this.config.elements.edges &&
+        Array.isArray(this.config.elements.edges)
+      ) {
+        els = [
+          ...els,
+          ...this.config.elements.edges.map(n => ({
+            ...n,
+            group: 'edges',
+            data: {
+              id: n.data.id ? n.data.id : `${n.data.source}_${n.data.target}`,
+              ...n.data
+            }
+          }))
+        ]
+      }
+
+      if (Array.isArray(this.config.elements)) {
+        els = [...this.config.elements]
+      }
     }
 
-    if (Array.isArray(this.config.elements)) {
-      els = [...this.config.elements]
-    }
     this.elements = els
   },
   async mounted () {
