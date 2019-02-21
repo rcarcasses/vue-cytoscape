@@ -5,18 +5,20 @@
 import VueCyObj from './cy-object'
 
 export default {
-  props: ['definition'],
+  props: ['definition', 'debug'],
   created () {
+    if (this.debug) console.log('[CyElement] [+] created ', this.definition)
     this.add(this.definition)
   },
   watch: {
     definition (newVal, oldVal) {
-      this.remove(oldVal)
-      this.add(newVal)
+      // this.remove(oldVal)
+      // this.add(newVal)
       return newVal
     }
   },
   destroyed () {
+    if (this.debug) console.log('[CyElement] [x] deleted ', this.definition)
     this.remove(this.definition)
   },
   methods: {
