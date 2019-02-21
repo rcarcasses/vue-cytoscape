@@ -1,6 +1,6 @@
 {
   "name": "vue-cytoscape",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "cytoscape.js inside vue.js, the extended way",
   "author": "Robert Carcassés Quevedo <carcasses@gmail.com>",
   "license": "MIT",
