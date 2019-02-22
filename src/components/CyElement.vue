@@ -25,7 +25,7 @@ export default {
     async add (element) {
       const cy = await VueCyObj.instance
       // add it only if it doesn't exist
-      if (cy.$id(element.data.id).length === 0) cy.add(element)
+      if (cy.$id(element.data.id).length === 0) cy.add({ ...element })
     },
     async remove (element) {
       const cy = await VueCyObj.instance
