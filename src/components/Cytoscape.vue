@@ -19,7 +19,8 @@ export default {
     'afterCreated',
     'elementAdded',
     'elementRemoved',
-    'debug'
+    'debug',
+    'reflection'
   ],
   data () {
     return {
@@ -78,38 +79,41 @@ export default {
     for (const [eventType, callback] of Object.entries(this.$listeners)) {
       cy.on(eventType, event => callback(event))
     }
-    // listen on elements creation/removal, and perform the reflection here
-    cy.on('add', event => {
-      const element = {
-        group: event.target.group(),
-        data: event.target.data()
-      }
-      if (this.debug) console.log('[Cytoscape] adding element', element)
-      const { elements } = this
-      const addReflection = () => {
-        if (this.debug) console.log('[Cytoscape] [+] added element', element)
-        elements.push(element)
-      }
-      // if there is a hook, then pass the data to it
-      if (this.elementAdded) this.elementAdded(element, addReflection)
-      // otherwise, just reflect the changes here
-      else addReflection()
-    })
-    cy.on('remove', event => {
-      const id = event.target.id()
-      if (this.debug) console.log('[Cytoscape] removing element', id)
-      const { elements } = this
-      const removeReflection = () => {
-        // console.log('event removing: ', id)
-        if (this.debug) console.log('[Cytoscape] [x] removed element', id)
-        // remove the element, in place
-        elements.splice(elements.findIndex(n => n.data.id === id), 1)
-      }
-      // if there is a hook, then pass the data to it
-      if (this.elementRemoved) this.elementRemoved(id, removeReflection)
-      // otherwise, just reflect the changes here
-      else removeReflection()
-    })
+    if (this.reflection) {
+      if (this.debug) console.log('[Cytoscape] dom reflection is on')
+      // listen on elements creation/removal, and perform the reflection here
+      cy.on('add', event => {
+        const element = {
+          group: event.target.group(),
+          data: event.target.data()
+        }
+        if (this.debug) console.log('[Cytoscape] adding element', element)
+        const { elements } = this
+        const addReflection = () => {
+          if (this.debug) console.log('[Cytoscape] [+] added element', element)
+          elements.push(element)
+        }
+        // if there is a hook, then pass the data to it
+        if (this.elementAdded) this.elementAdded(element, addReflection)
+        // otherwise, just reflect the changes here
+        else addReflection()
+      })
+      cy.on('remove', event => {
+        const id = event.target.id()
+        if (this.debug) console.log('[Cytoscape] removing element', id)
+        const { elements } = this
+        const removeReflection = () => {
+          // console.log('event removing: ', id)
+          if (this.debug) console.log('[Cytoscape] [x] removed element', id)
+          // remove the element, in place
+          elements.splice(elements.findIndex(n => n.data.id === id), 1)
+        }
+        // if there is a hook, then pass the data to it
+        if (this.elementRemoved) this.elementRemoved(id, removeReflection)
+        // otherwise, just reflect the changes here
+        else removeReflection()
+      })
+    }
   }
 }
 </script>
