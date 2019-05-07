@@ -186,7 +186,7 @@ export default {
 Many features of `cytoscape` come as external dependencies or extensions. To use an extension you can use the following life cycle hooks:
 
 - `preConfig` if defined, it will be called with the cytoscape constructor function before creating the `cytoscape` instance.
-- `afterCreate` if defined, it will be called after the creation of the `cytoscape` instance with this instance as argument.
+- `afterCreated` if defined, it will be called after the creation of the `cytoscape` instance with this instance as argument.
 
 For example, in the following code we register and configure the `contextMenus` extension:
 ```javascript
