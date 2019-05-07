@@ -89,7 +89,9 @@ export default {
 }
 </script>
 ```
-You can check the `ChildrenElementsExample.vue` in the `github` repository for a full example.
+You can check the `[src/ChildrenElementsExample.vue](https://github.com/rcarcasses/vue-cytoscape/blob/master/src/ChidrenElementsExample.vue)` in the `[GitHub](https://github.com/rcarcasses/vue-cytoscape)` repository for a full example.
+
+Note: `[src/LayoutExtensionsWithCyElementsExample.vue](https://github.com/rcarcasses/vue-cytoscape/blob/master/src/LayoutExtensionsWithCyElementsExample.vue)` is an example of usage of the `cy-element`'s together with some layout extension.
 
 #### How this works
 This section is safe to ommit. Nevertheless the way the previous `vue`-like behaviour is implemented
