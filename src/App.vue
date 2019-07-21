@@ -1,91 +1,57 @@
 <template>
-  <div id="holder">
-    <cytoscape
-      :config="config"
-      v-on:mousedown="addNode"
-      v-on:cxttapstart="updateNode"
-    >
+  <div id="app">
+    <Cytoscape ref="cy" :config="config" v-on:mousedown="addNode" v-on:cxttapstart="updateNode">
       <cy-element
         v-for="def in elements"
         :key="`${def.data.id}`"
         :definition="def"
+        v-on:mousedown="deleteNode($event, def.data.id)"
       />
-    </cytoscape>
+    </Cytoscape>
   </div>
 </template>
 
-<script>
-import Cytoscape from './components/Cytoscape'
-import config from '@/utils/dummy-config'
-// import { sync } from '@/components/cy-object'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import { Core, EventObject } from 'cytoscape'
+import Cytoscape from '@/components/Cytoscape'
 import CyElement from '@/components/CyElement'
+import config from '@/example-config.json'
 
-// const state = sync({ elements: config.elements })
-delete config.elements
-
-export default {
-  name: 'App',
-  data () {
-    return {
-      config,
-      i: 0,
-      elements: []
-    }
-  },
-  methods: {
-    addNode (event) {
-      const { position } = event
-      const n = {
-        group: 'nodes',
-        data: { id: `n${this.i++}` },
-        position
-      }
-
-      this.elements = [...this.elements, n]
-    },
-    updateNode (event) {
-      if (event.target.id) {
-        const n = {
-          data: { id: event.target.id(), shape: 'rectangle' },
-          position: event.target.position(),
-          group: 'nodes'
-        }
-        console.log('updating: ', n)
-        const elements = [
-          ...this.elements.filter(e => e.data.id !== event.target.id()),
-          n
-        ]
-        console.log('filtered elements: ', elements)
-        this.elements = elements
-      }
-    },
-    removeNode (event) {
-      if (event.target.id) {
-        console.log('removing: ', event.target.id())
-        this.elements = this.elements.filter(
-          e => e.data.id !== event.target.id()
-        )
-      }
-    }
-  },
+@Component({
   components: {
     Cytoscape,
     CyElement
   }
+})
+export default class App extends Vue {
+  addNode(event: EventObject) {
+    if (event.target === (this.$refs.cy as Cytoscape).instance)
+      console.log('adding node', event)
+  }
+
+  deleteNode(event: Event, id: string) {
+    console.log('node clicked', id)
+  }
+
+  updateNode(event: any) {
+    console.log('right click node', event)
+  }
+
+  get elements() {
+    return config.elements
+  }
+
+  get config() {
+    const noElementsConfig = { ...config }
+    delete noElementsConfig.elements
+    return noElementsConfig
+  }
 }
 </script>
-
 <style>
-#holder {
+#app {
   width: 100%;
   height: 400px;
-}
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
