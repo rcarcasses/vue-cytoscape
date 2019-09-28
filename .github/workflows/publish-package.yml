@@ -15,8 +15,7 @@ jobs:
       - name: Set Node.js 10.x
         uses: actions/setup-node@master
         with:
-          version: 10.x
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 10.x
 
       - name: Install
         run: yarn install
@@ -24,14 +23,7 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Setup node for GPR
-        uses: actions/setup-node@v1
-        with:
-          version: 10.x
-          registry-url: 'https://npm.pkg.github.com'
-          
-      - name: Publish to GPR
+      - name: Publish to NPM
         run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GPR_PUBLISHER_TOKEN }}
-
+          NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
