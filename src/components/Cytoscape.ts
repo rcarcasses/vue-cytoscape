@@ -50,7 +50,7 @@ export default class VueCytoscape extends Vue {
   }
 
   render(h: (arg0: string, vnodes: VNode[]) => void, context: any) {
-    console.log('rendering context', context, this.$children, this.$slots)
+    // console.log('rendering context', context, this.$children, this.$slots)
     return h('div', this.$slots.default as VNode[])
   }
 }
