@@ -24,6 +24,9 @@ jobs:
         run: yarn build
 
       - name: Publish to NPM
-        run: yarn publish
+        run: |
+          echo "//registry.yarnpkg.com/:_authToken=$NODE_AUTH_TOKEN" >>~/.npmrc
+          cat ~/.npmrc
+          yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
