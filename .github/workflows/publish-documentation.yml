@@ -17,4 +17,6 @@ jobs:
         with:
           version: 10.x
 
+      - run: yarn install
+      
       - run: ./deploy-docs.sh
