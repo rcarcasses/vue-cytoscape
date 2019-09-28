@@ -10,8 +10,11 @@ jobs:
     name: Build docs
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-          with:
-            node-version: 10.x
-      - run: deploy-docs.sh
+      - uses: actions/checkout@master
+      
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+
+      - run: ./deploy-docs.sh
