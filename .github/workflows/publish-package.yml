@@ -1,0 +1,37 @@
+name: Publish vue-cytoscape to npm
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build vue-cytoscape
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          version: 10.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install
+        run: yarn install
+    
+      - name: Build
+        run: yarn build
+
+      - name: Setup node for GPR
+        uses: actions/setup-node@v1
+        with:
+          version: 10.x
+          registry-url: 'https://npm.pkg.github.com'
+          
+      - name: Publish to GPR
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GPR_PUBLISHER_TOKEN }}
+
