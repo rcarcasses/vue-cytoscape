@@ -14,4 +14,4 @@ jobs:
       - uses: actions/setup-node@v1
           with:
             node-version: 10.x
-      - run: ./deploy-docs.sh
+      - run: deploy-docs.sh
