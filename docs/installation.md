@@ -84,7 +84,7 @@ const elements = [
 ```
 
 ::: tip
-If you are using `CyElement`'s components, while valid **it is recommended to pass a config object without the `elements` property** to avoid confusion.
+If you are using `CyElement`'s components, **it is recommended to pass a config object without the `elements` property**.
 :::
 
 For more information please read [cytoscape documentation](http://js.cytoscape.org/#getting-started/initialisation). See [Components API](/api) for more details.
