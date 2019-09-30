@@ -6,6 +6,7 @@
         :key="`${def.data.id}`"
         :definition="def"
         v-on:mousedown="deleteNode($event, def.data.id)"
+        sync="true"
       />
     </Cytoscape>
   </div>

@@ -87,6 +87,7 @@ In version `v1.0.0` you can have multiple `Cytoscape` components in the same vue
 Along with the `Cytoscape` component `vue-cytoscape` also register the `CyElement` component. A `CyElement` represents a `cytoscape` element object. The following properties are defined:
 
 - `definition`, an object that describe the element to add to `cytoscape`. This value will be passed internally to the function `cy.add`, see [cytoscape specification](http://js.cytoscape.org/#cy.add).
+- `sync`, default `false`. If set to `true` then `vue-cytoscape` will synchronize the value of `definition.position` whenever the corresponding `cytoscape` element is dragged on stage.
 
 In addition, like for `Cytoscape` component, we can register event listeners using `v-on:eventname="callback"` directive. Internally this will be translated to ``cy.on(eventname, `#{definition.data.id}`, callback)``.
 

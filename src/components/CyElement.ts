@@ -13,6 +13,7 @@ export default class CyElement extends Vue {
   @Inject() readonly cy!: Promise<Core>
   instance: Core | undefined = undefined
   selector: Selector = ''
+  @Prop({ default: false }) readonly sync!:boolean
 
   constructor() {
     super()
@@ -35,6 +36,14 @@ export default class CyElement extends Vue {
       if (Array.isArray(callback))
         callback.map(f => register(eventType, f as EventHandler))
       else register(eventType, callback as EventHandler)
+    }
+    // if sync is on, track position
+    if(this.sync) {
+      instance.on('drag', this.selector, event => {
+        // console.log(`moving ${this.selector}, event`, event.target.position())
+        // update definition object
+        this.definition.position = event.target.position()
+      })
     }
     // add the element to cytoscape
     instance.add(this.definition)
