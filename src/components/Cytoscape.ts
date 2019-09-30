@@ -10,8 +10,8 @@ import cytoscape, {
 @Component({})
 export default class VueCytoscape extends Vue {
   @Prop() config!: CytoscapeOptions
-  @Prop() preConfig: any | undefined = undefined
-  @Prop() afterCreated: any = undefined
+  @Prop({ default: (x:any) => {} }) preConfig: (x:any) => void
+  @Prop({ default: (x:any) => {} }) afterCreated: (x:any) => void
   instance: Core | undefined = undefined
   resolve: any = undefined
   reject: any = undefined
@@ -21,7 +21,7 @@ export default class VueCytoscape extends Vue {
   })
 
   public mounted(): void {
-    console.log('vue-cytoscape mounted')
+    // console.log('vue-cytoscape mounted')
     // create a vue independent element
     const el = document.createElement('div')
     el.setAttribute('id', 'cytoscape-div')
@@ -30,6 +30,7 @@ export default class VueCytoscape extends Vue {
     // add it as a child of the vue managed one
     this.$el.appendChild(el)
     // apply lifecycle hooks
+    // console.log(`this.preConfig`, this.preConfig)
     if (this.preConfig) this.preConfig(cytoscape)
     // create cytoscape instance
     const instance = cytoscape({ container: el, ...this.config })

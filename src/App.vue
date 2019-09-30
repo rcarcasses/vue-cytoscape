@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Cytoscape ref="cy" :config="config" v-on:mousedown="addNode" v-on:cxttapstart="updateNode">
+    <Cytoscape ref="cy" :config="config" :preConfig="preConfig" :afterCreated="afterCreated" v-on:mousedown="addNode" v-on:cxttapstart="updateNode">
       <cy-element
         v-for="def in elements"
         :key="`${def.data.id}`"
@@ -37,6 +37,14 @@ export default class App extends Vue {
 
   updateNode(event: any) {
     console.log('right click node', event)
+  }
+
+  preConfig(cytoscape: any) {
+    console.log(`calling preConfig`, cytoscape)
+  }
+
+  afterCreated(cy: Core) {
+    console.log(`after cytoscape has been created, core`, cy)
   }
 
   get elements() {
