@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '!docs/*'
+      - 'package.json'
 
 jobs:
   build:
