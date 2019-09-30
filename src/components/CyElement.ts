@@ -40,7 +40,6 @@ export default class CyElement extends Vue {
     // if sync is on, track position
     if(this.sync) {
       instance.on('drag', this.selector, event => {
-        // console.log(`moving ${this.selector}, event`, event.target.position())
         // update definition object
         this.definition.position = event.target.position()
       })
