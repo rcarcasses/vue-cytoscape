@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "noImplicitAny": true,
+    "outDir": "./dist",
     "target": "esnext",
     "module": "esnext",
     "strict": true,
