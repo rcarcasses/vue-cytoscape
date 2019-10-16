@@ -1,6 +1,6 @@
 {
   "name": "vue-cytoscape",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "serve": "vue-cli-service serve",
-    "build": "tsc -p tsconfig.json && vue-cli-service build --target lib --name vue-cytoscape src/plugin.ts",
+    "build": "vue-cli-service build --target lib --name vue-cytoscape src/plugin.ts",
+    "postbuild": "tsc -p tsconfig.json ",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
