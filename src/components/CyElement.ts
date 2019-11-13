@@ -70,7 +70,7 @@ export default class CyElement extends Vue {
     return ele
   }
 
-  unmounted() {
+  beforeDestroy() {
     const instance = this.instance as Core
     instance.remove(this.selector)
   }

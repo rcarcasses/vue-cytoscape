@@ -61,10 +61,15 @@ export default class App extends Vue {
   }
 
   deleteNode(event: Event, id: string) {
-    console.log('node clicked', id)
-    console.log(event.target)
-    if (this.cy)
-      this.cy.remove((event.target as unknown) as NodeSingular | EdgeSingular)
+    // Example of reactivelyeactively delete an element
+    const ele = this.elements.some((ele, index) => {
+      const match = ele.data.id == id
+      if (match) {
+        // Using JS 'delete array(index)' won't trigger a reaction, so use this instead
+        this.$delete(this.elements, index)
+      }
+      return match
+    })
   }
 
   updateNode(event: any) {
@@ -76,13 +81,8 @@ export default class App extends Vue {
 
   reactiveUpdate(event: any) {
     if (event.target === (this.$refs.cy as Cytoscape).instance) {
-      // Example of change this component's "elements" array to change the data
+      // Example of changing this component's "elements" array to reactively change the data
       this.elements[0].data.label = 'Updated Reactively'
-
-      // Note: Elements are updated through deletion and re-addition, so position changes made
-      // in this way can't be animated.
-      // console.log(this.elements[1].position)
-      console.log(event.target.getElementById(this.elements[1].data.id))
       if (this.elements[1].position) this.elements[1].position.x -= 100
     }
   }
