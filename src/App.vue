@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <Cytoscape ref="cy" :config="config" :preConfig="preConfig" :afterCreated="afterCreated" v-on:mousedown="addNode" v-on:cxttapstart="updateNode">
+    <Cytoscape
+      ref="cy"
+      :config="config"
+      :preConfig="preConfig"
+      :afterCreated="afterCreated"
+      v-on:mousedown="addNode"
+      v-on:cxttap="reactiveUpdate"
+    >
       <cy-element
         v-for="def in elements"
         :key="`${def.data.id}`"
         :definition="def"
-        v-on:mousedown="deleteNode($event, def.data.id)"
-        sync="true"
+        v-on:click="deleteNode($event, def.data.id)"
+        v-on:cxttap="updateNode"
+        :sync="true"
       />
     </Cytoscape>
   </div>
@@ -14,10 +22,18 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { Core, EventObject } from 'cytoscape'
+import {
+  Core,
+  EventObject,
+  ElementDefinition,
+  NodeSingular,
+  EdgeSingular
+} from 'cytoscape'
 import Cytoscape from '@/components/Cytoscape'
 import CyElement from '@/components/CyElement'
-import config from '@/example-config.json'
+import config from '@/example-config.ts'
+import eles from '@/example-elements.ts'
+import uuid from 'uuid/v4'
 
 @Component({
   components: {
@@ -26,17 +42,49 @@ import config from '@/example-config.json'
   }
 })
 export default class App extends Vue {
+  cy: Core | undefined
+  elements = eles
+
   addNode(event: EventObject) {
-    if (event.target === (this.$refs.cy as Cytoscape).instance)
-      console.log('adding node', event)
+    // Example of adding node
+    if (event.target === (this.$refs.cy as Cytoscape).instance) {
+      const id: string = uuid()
+      this.elements.push({
+        data: {
+          id,
+          label: 'new'
+        },
+        position: event.position,
+        group: 'nodes'
+      })
+    }
   }
 
   deleteNode(event: Event, id: string) {
     console.log('node clicked', id)
+    console.log(event.target)
+    if (this.cy)
+      this.cy.remove((event.target as unknown) as NodeSingular | EdgeSingular)
   }
 
   updateNode(event: any) {
-    console.log('right click node', event)
+    // Example of directly changing the data by target
+    let label: string = event.target.data().label
+    label += label[0]
+    event.target.data({ label })
+  }
+
+  reactiveUpdate(event: any) {
+    if (event.target === (this.$refs.cy as Cytoscape).instance) {
+      // Example of change this component's "elements" array to change the data
+      this.elements[0].data.label = 'Updated Reactively'
+
+      // Note: Elements are updated through deletion and re-addition, so position changes made
+      // in this way can't be animated.
+      // console.log(this.elements[1].position)
+      console.log(event.target.getElementById(this.elements[1].data.id))
+      if (this.elements[1].position) this.elements[1].position.x -= 100
+    }
   }
 
   preConfig(cytoscape: any) {
@@ -44,11 +92,7 @@ export default class App extends Vue {
   }
 
   afterCreated(cy: Core) {
-    console.log(`after cytoscape has been created, core`, cy)
-  }
-
-  get elements() {
-    return config.elements
+    this.cy = cy
   }
 
   get config() {
