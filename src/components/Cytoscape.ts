@@ -10,8 +10,8 @@ import cytoscape, {
 @Component({})
 export default class VueCytoscape extends Vue {
   @Prop() config!: CytoscapeOptions
-  @Prop({ default: (x:any) => {} }) preConfig: (x:any) => void
-  @Prop({ default: (x:any) => {} }) afterCreated: (x:any) => void
+  @Prop({ default: (x: any) => {} }) preConfig: (x: any) => void
+  @Prop({ default: (x: any) => {} }) afterCreated: (x: any) => void
   instance: Core | undefined = undefined
   resolve: any = undefined
   reject: any = undefined
@@ -21,7 +21,6 @@ export default class VueCytoscape extends Vue {
   })
 
   public mounted(): void {
-    // console.log('vue-cytoscape mounted')
     // create a vue independent element
     const el = document.createElement('div')
     el.setAttribute('id', 'cytoscape-div')
@@ -30,7 +29,6 @@ export default class VueCytoscape extends Vue {
     // add it as a child of the vue managed one
     this.$el.appendChild(el)
     // apply lifecycle hooks
-    // console.log(`this.preConfig`, this.preConfig)
     if (this.preConfig) this.preConfig(cytoscape)
     // create cytoscape instance
     const instance = cytoscape({ container: el, ...this.config })
@@ -46,12 +44,10 @@ export default class VueCytoscape extends Vue {
     this.instance = instance
     // resolve the promise with the object created
     this.resolve(instance)
-    console.log('vue-cytoscape this.cy', this.cy)
     if (this.afterCreated) this.afterCreated(instance)
   }
 
   render(h: (arg0: string, vnodes: VNode[]) => void, context: any) {
-    // console.log('rendering context', context, this.$children, this.$slots)
     return h('div', this.$slots.default as VNode[])
   }
 }

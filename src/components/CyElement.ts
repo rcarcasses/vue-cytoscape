@@ -25,7 +25,6 @@ export default class CyElement extends Vue {
   configure(cy: Core) {
     this.instance = cy
     const ele = this.add()
-    console.log(ele)
     if (!this.id) {
       this.id = ele.data().id
       this.selector = `#${this.id}`
@@ -88,7 +87,6 @@ export default class CyElement extends Vue {
     const instance = this.instance as Core
     const ele = instance.getElementById(this.id as string)
     ele.data(data)
-    // console.log(ele.data().label)
   }
 
   @Watch('position', { deep: true })
@@ -96,7 +94,6 @@ export default class CyElement extends Vue {
     const instance = this.instance as Core
     const ele = instance.getElementById(this.id as string)
     ele.position(JSON.parse(JSON.stringify(position)))
-    console.log('watcher')
   }
 
   render(h: (arg0: string) => void) {
