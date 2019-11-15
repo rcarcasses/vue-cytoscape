@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.7
+- reactivity added for element data & positions
+
 ## v1.0.0
 
 - typescript support
