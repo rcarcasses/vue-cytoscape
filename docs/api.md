@@ -17,6 +17,20 @@ In addition to these, you can listen to any `cytoscape` event using the `v-on` d
 will be translated to `cy.on('mousedown', addNode)`. All `cytoscape` events are supported, you just change `mousedown` by the corresponding event string in the previous code snippet. See [events in
 cytoscape](http://js.cytoscape.org/#events) for more details.
 
+### Reactivity
+The `CyElement` component uses the `cytoscape` data format, and binds element data to the `definition` prop.
+The following changes to bound data will update the graph reactively:
+- Adding or deleting nodes or edges (an edge will be automatically removed if it's corresponding node is removed)
+- `definition.data` - which corresponds to `ele.data` in `cytoscape`
+- `definition.position` - use `:sync="true"` to make the position bind two ways)
+
+Note: Vanilla `cytoscape` generally recommends deleting and re-adding elements to update the graph, but this can create problems (e.g. a single element "update" would delete any connected edges, but restoring connected edges afterwards creates to unexpected edge-overlap behavior.) To solve this, `vue-cytoscape` listens for changes to each element and directly updates `cytoscape` without deleting anything. 
+
+Other reactivity bindings may be added, though the priority is lower because the other element settings are much less likely to change
+
+
+It will respond to changes to `definition.data` (which corresponds to `ele.data` in `cytoscape)
+
 ### Registering cytoscape extensions
 
 Many features of `cytoscape` come as external dependencies or extensions. You can use the lifecycle hooks defined in the previous section to register those.
