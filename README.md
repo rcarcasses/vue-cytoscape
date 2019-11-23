@@ -20,6 +20,9 @@ To upgrade from `v0.2.x` to `v1.0.0`:
 
 # Changelog
 
+## v1.0.7
+- reactivity added for element data & positions
+
 ## v1.0.0
 
 - Typescript support.
