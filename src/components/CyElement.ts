@@ -90,7 +90,7 @@ export default class CyElement extends Vue {
   }
 
   @Watch('position', { deep: true })
-  onPositionChange(position: any) {
+  onPositionChange(position: any = null) {
     const instance = this.instance as Core
     const ele = instance.getElementById(this.id as string)
     ele.position(JSON.parse(JSON.stringify(position)))
