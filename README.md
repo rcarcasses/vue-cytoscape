@@ -12,7 +12,7 @@ For more details please visit our site:
 
 # Migration guide
 
-To upgrade from `v0.2.x` to `v1.0.0`:
+To upgrade from `v0.2.x` to `v1.0.x`:
 
 - `this.$cytoscape.instance` no longer exist in `v1`, if you want to access cytoscape instance use the `afterCreated` lifecycle hook.
 - Creating elements by passing `config.elements` configuration is discouraged, use the `CyElement`s api instead.
