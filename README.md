@@ -8,7 +8,7 @@
 
 For more details please visit our site:
 
-[https://rcarcasses.github.com/vue-cytoscape](https://rcarcasses.github.com/vue-cytoscape)
+[https://rcarcasses.github.io/vue-cytoscape](https://rcarcasses.github.io/vue-cytoscape)
 
 # Migration guide
 
