@@ -12,8 +12,8 @@ export default class VueCytoscape extends Vue {
   @Prop() config!: CytoscapeOptions
   @Prop({ default: (x: any) => {} }) preConfig: (x: any) => void
   @Prop({ default: (x: any) => {} }) afterCreated: (x: any) => void
-  @Prop({ default: 'min-height: 600px;' }) style: string
-  @Prop({ default: "100%" }) width: string
+  @Prop({ default: 'min-height: 600px;' }) elStyle: string
+  @Prop({ default: "100%" }) elWidth: string
   instance: Core | undefined = undefined
   resolve: any = undefined
   reject: any = undefined
@@ -26,8 +26,8 @@ export default class VueCytoscape extends Vue {
     // create a vue independent element
     const el = document.createElement('div')
     el.setAttribute('id', 'cytoscape-div')
-    el.setAttribute('width', this.width)
-    el.setAttribute('style', this.style)
+    el.setAttribute('width', this.elWidth)
+    el.setAttribute('style', this.elStyle)
     // add it as a child of the vue managed one
     this.$el.appendChild(el)
     // apply lifecycle hooks
